@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Learn Georgian with mr. duda</title>
+  <meta name="description" content="Learn Georgian for free: lessons, alphabet, quizzes and a translator for English and Russian speakers.">
+  <meta name="theme-color" content="#eab308">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Text marked data-i18n / data-i18n-placeholder / data-i18n-label is filled in by app.js (i18n.js). -->
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo" data-icon="graduation-cap"></span>
+        <div>
+          <h1>mr. duda</h1>
+          <p class="subtitle" data-i18n="subtitle"></p>
+        </div>
+      </div>
+      <button id="settingsBtn" class="icon-btn" data-i18n-label="settings" data-icon="settings"></button>
+    </header>
+
+    <main id="chat" class="chat" aria-live="polite"></main>
+
+    <div id="quickActions" class="quick-actions"></div>
+
+    <form id="composer" class="composer">
+      <input id="input" autocomplete="off" data-i18n-placeholder="placeholder" />
+      <button type="submit" id="sendBtn" data-i18n="send"></button>
+    </form>
+  </div>
+
+  <!-- First-launch setup: language, name, mood, colour. Filled in by app.js. -->
+  <div id="setup" class="setup" hidden></div>
+
+  <dialog id="settings">
+    <form method="dialog" class="settings-form">
+      <h2 data-i18n="settings"></h2>
+      <div class="field">
+        <span data-i18n="language"></span>
+        <div class="segmented" id="langPicker" role="radiogroup"></div>
+      </div>
+      <label><span data-i18n="yourName"></span>
+        <input type="text" id="userName" maxlength="30" autocomplete="given-name" data-i18n-placeholder="namePlaceholder">
+      </label>
+      <div class="field">
+        <span data-i18n="mood"></span>
+        <div class="segmented" id="moodPicker" role="radiogroup"></div>
+      </div>
+      <div class="field">
+        <span data-i18n="colour"></span>
+        <div class="swatches" id="swatches">
+          <label class="swatch custom" data-i18n-label="customColour">
+            <input type="color" id="customColor" data-i18n-label="customColour">
+          </label>
+        </div>
+      </div>
+      <label class="row"><input type="checkbox" id="showTranslit"> <span data-i18n="showPron"></span></label>
+      <details class="my-words">
+        <summary><span data-i18n="myWords"></span> <span id="wordCount" class="count"></span></summary>
+        <ul id="wordList"></ul>
+      </details>
+      <p class="hint" data-i18n="storageHint"></p>
+      <div class="settings-actions">
+        <button type="button" id="exportBtn" class="secondary" data-i18n="backup"></button>
+        <button type="button" id="importBtn" class="secondary" data-i18n="restore"></button>
+        <button type="button" id="resetBtn" class="danger" data-i18n="reset"></button>
+        <button value="close" data-i18n="done"></button>
+      </div>
+      <input type="file" id="importFile" accept="application/json" hidden>
+    </form>
+  </dialog>
+
+  <script src="js/icons.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/srs.js"></script>
+  <script src="js/lookup.js"></script>
+  <script src="js/moods.js"></script>
+  <script src="js/grammar.js"></script>
+  <script src="js/offline.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
